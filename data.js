@@ -1,6 +1,11 @@
 import request from 'superagent';
 import { Promise } from 'es6-promise';
 
+const user = {
+  id: 1,
+  name: 'Jack'
+}
+
 export function getBooks() {
 
   return new Promise(function(resolve, reject) {
@@ -11,3 +16,11 @@ export function getBooks() {
     });
   });
 }
+
+export function getUser() {
+
+  return new Promise(function(resolve, reject) {
+    resolve(user);
+  });
+}
+

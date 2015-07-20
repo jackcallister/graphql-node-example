@@ -12,14 +12,13 @@ app.get('/api', (req, res) => {
   // Imagine different client side components
   // requesting different pieces of data
   let querys = [
-    "{ books { id, author } }",
+    "{ user { name }, books { author } }"
     "{ books { id, title } }",
     "{ books { id, title, author } }"
   ]
 
   // Pick a random query to use
   let query = querys[Math.floor(Math.random() * querys.length)];
-
   // Pass the query to GraphQL and return the response
   graphql(schema, query).then((result) => {
     res.send(JSON.stringify(result));

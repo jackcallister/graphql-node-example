@@ -1,4 +1,4 @@
-import { getBooks } from './book.js';
+import { getBooks, getUser } from './data.js';
 
 import {
   GraphQLObjectType,
@@ -28,6 +28,21 @@ const BookType = new GraphQLObjectType({
   })
 });
 
+const UserType = new GraphQLObjectType({
+  name: 'User',
+  description: 'A user object',
+  fields: () => ({
+    id: {
+      type: GraphQLInt,
+      description: 'The id of the user.'
+    },
+    name: {
+      type: GraphQLString,
+      description: 'The name of the user.'
+    }
+  })
+});
+
 // Type definitions for the GraphQL endpoint. You can ask for books.
 // The resolve function fetches the books and is returned in the
 // requested shape thanks to GraphQL.
@@ -39,6 +54,12 @@ const schema = new GraphQLSchema({
         type: new GraphQLList(BookType),
         resolve: () => {
           return getBooks();
+        }
+      },
+      user: {
+        type: UserType,
+        resolve: () => {
+          return getUser();
         }
       }
     }
