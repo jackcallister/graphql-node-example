@@ -12,7 +12,7 @@ app.get('/api', (req, res) => {
   // Imagine different client side components
   // requesting different pieces of data
   let querys = [
-    "{ user { name }, books { author } }"
+    "{ user { name }, books { author } }",
     "{ books { id, title } }",
     "{ books { id, title, author } }"
   ]
