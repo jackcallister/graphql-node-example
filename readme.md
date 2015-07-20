@@ -12,4 +12,4 @@ Or visit
 
 Hit refresh to get a new shape.
 
-Read through server.js to see how the API works, follow through to schema.js and book.js. Happy hunting!
+Read through server.js to see how the API works, follow through to schema.js and data.js. Happy hunting!
